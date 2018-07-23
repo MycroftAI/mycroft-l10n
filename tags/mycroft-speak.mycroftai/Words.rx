@@ -1,0 +1,3 @@
+_("say (?P<Words>.*)")
+_("speak (?P<Words>.*)")
+_("repeat (?P<Words>.*)")

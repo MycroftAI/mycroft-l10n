@@ -1,0 +1,1 @@
+_(".*(wiki|for|about|wikipedia)(?! (for|about)) (?P<ArticleTitle>.+)")

@@ -1,0 +1,2 @@
+_("price of (?P<Company>.*)")
+_("is (?P<Company>.*) trading at")

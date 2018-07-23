@@ -1,0 +1,3 @@
+_("Volume reduced to {{volume}}")
+_("Volume decreased to {{volume}}")
+_("Volume is now {{volume}}")

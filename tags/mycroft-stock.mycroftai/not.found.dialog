@@ -1,0 +1,2 @@
+_("Sorry, I couldn't find a stock price for {{company}}.")
+_("{{company}} doesn't exist or has no stock price.")

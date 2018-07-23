@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-23 13:04-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tags/mycroft-personal.mycroftai/WhatAreYouKeyword.voc:1
+msgid "what are you"
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/WhenWereYouBornKeyword.voc:1
+msgid "when were you born"
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/WhenWereYouBornKeyword.voc:2
+msgid "when were you created"
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/WhereWereYouBornKeyword.voc:1
+msgid "where were you born"
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/WhereWereYouBornKeyword.voc:2
+msgid "where were you created"
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/WhoAreYouKeyword.voc:1
+msgid "who are you"
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/WhoMadeYouKeyword.voc:1
+msgid "who made you"
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/WhoMadeYouKeyword.voc:2
+msgid "who were you made by"
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/WhoMadeYouKeyword.voc:3
+msgid "who created you"
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/WhoMadeYouKeyword.voc:4
+msgid "who built you"
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/what.am.i.dialog:1
+msgid "I am an open source artificial intelligence."
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/what.am.i.dialog:2
+msgid "I'm an intelligent piece of software for communicating with machines"
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/when.was.i.born.dialog:1
+msgid "I was born in 2015."
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/when.was.i.born.dialog:2
+msgid "2015 is when I was born."
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/where.was.i.born.dialog:1
+msgid "The Lawrence Center for Entrepreneurship."
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/where.was.i.born.dialog:2
+msgid "I was born in Lawrence, Kansas."
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/who.am.i.dialog:1
+msgid "My name is {{name}} and I'm an intelligent personal assistant"
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/who.am.i.dialog:2
+msgid "I'm {{name}}, an open-source A.I."
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/who.made.me.dialog:1
+msgid "The wonderful Mycroft A.I. community and team."
+msgstr ""
+
+#: tags/mycroft-personal.mycroftai/who.made.me.dialog:2
+msgid "Everyone in the Mycroft A.I. community and team."
+msgstr ""

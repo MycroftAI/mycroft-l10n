@@ -1,0 +1,2 @@
+_("Could not fetch configuration, device is not paired.")
+_("Couldn't update the config, please pair the device")

@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-23 13:04-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tags/mycroft-volume.mycroftai/Decrease.voc:1
+msgid "lower"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Decrease.voc:2
+msgid "reduce"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Decrease.voc:3
+msgid "decrease"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Decrease.voc:4
+msgid "turn down"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Decrease.voc:5
+msgid "quieter"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Increase.voc:1
+msgid "rise"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Increase.voc:2
+msgid "raise"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Increase.voc:3
+msgid "boost"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Increase.voc:4
+msgid "increase"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Increase.voc:5
+msgid "turn up"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Increase.voc:6
+msgid "louder"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:1
+msgid "0"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:2
+msgid "1"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:3
+msgid "2"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:4
+msgid "3"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:5
+msgid "4"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:6
+msgid "5"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:7
+msgid "6"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:8
+msgid "7"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:9
+msgid "8"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:10
+msgid "9"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:11
+msgid "10"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:12
+msgid "11"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:13
+msgid "quiet"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:14
+msgid "normal"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Level.voc:15
+msgid "loud"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Mute.voc:1
+msgid "mute"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Mute.voc:2
+msgid "silence"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Unmute.voc:1
+msgid "reset"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Unmute.voc:2
+msgid "unmute"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Unmute.voc:3
+msgid "restore"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Volume.voc:1
+msgid "volume"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Volume.voc:2
+msgid "speaker"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/Volume.voc:3
+msgid "sound"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/already.max.volume.dialog:1
+msgid "The volume already at maximum"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/already.max.volume.dialog:2
+msgid "I can't get any louder"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/decrease.volume.dialog:1
+msgid "Volume reduced to {{volume}}"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/decrease.volume.dialog:2
+msgid "Volume decreased to {{volume}}"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/decrease.volume.dialog:3
+#: tags/mycroft-volume.mycroftai/increase.volume.dialog:1
+msgid "Volume is now {{volume}}"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/increase.volume.dialog:2
+msgid "Volume increased to {{volume}}"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/mute.volume.dialog:1
+msgid "Audio is going to be muted"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/mute.volume.dialog:2
+msgid "Sound is going to be muted"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/reset.volume.dialog:1
+msgid "Volume reset to {{volume}}"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/reset.volume.dialog:2
+msgid "Volume restored to {{volume}}"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/set.volume.dialog:1
+msgid "Volume set to {{volume}}"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/set.volume.dialog:2
+msgid "Volume updated to {{volume}}"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/set.volume.dialog:3
+msgid "Volume changed to {{volume}}"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/volume.amount.rx:1
+msgid "(?P<Level>\\d+)"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/volume.is.dialog:1
+msgid "The volume is set to {{volume}}"
+msgstr ""
+
+#: tags/mycroft-volume.mycroftai/volume.is.dialog:2
+msgid "The volume is at {{volume}}"
+msgstr ""

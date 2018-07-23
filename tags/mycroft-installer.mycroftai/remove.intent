@@ -1,0 +1,2 @@
+_("uninstall (skill|) {skill}")
+_("remove skill {skill}")

@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-23 13:04-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tags/mycroft-joke.mycroftai/Adult.voc:1
+msgid "adult"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Adult.voc:2
+msgid "sexy"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Adult.voc:3
+msgid "sex"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Adult.voc:4
+msgid "dirty"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Adult.voc:5
+msgid "raunchy"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Adult.voc:6
+msgid "naughty"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Chuck.voc:1
+msgid "chuck"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Chuck.voc:2
+msgid "chuck norris"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Joke.voc:1
+msgid "joke"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Joke.voc:2
+msgid "make me laugh"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Joke.voc:3
+msgid "brighten my day"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Joke.voc:4
+msgid "tell me joke"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Neutral.voc:1
+msgid "neutral"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Neutral.voc:2
+msgid "non-offensive"
+msgstr ""
+
+#: tags/mycroft-joke.mycroftai/Neutral.voc:3
+msgid "geeky"
+msgstr ""

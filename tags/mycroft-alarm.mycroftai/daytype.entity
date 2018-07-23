@@ -1,0 +1,3 @@
+_("(day | weekday | weekdays | weekend | weekends | tomorrow | today)")
+_("(monday  | tuesday  | wednesday  | thursday  | friday  | saturday  | sunday )")
+_("(mondays  | tuesdays  | wednesdays  | thursdays  | fridays | saturdays  | sundays )")

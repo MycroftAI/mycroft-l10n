@@ -1,0 +1,1 @@
+_("(spell word|spelling of word|spelling of|spell) (?P<Word>\w+)")

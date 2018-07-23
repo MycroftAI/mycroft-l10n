@@ -1,0 +1,4 @@
+_("It will be {{condition}}, with temperatures near {{temp_max}}")
+_("Later it will be {{condition}} and around {{temp_max}} degrees")
+_("Later it will be {{condition}} and {{temp_max}} degrees")
+_("Around {{temp_max}} degrees with {{condition}} conditions")

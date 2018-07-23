@@ -1,0 +1,2 @@
+_("You have a reminder {{data}} on {{datetime}}")
+_("There is a reminder {{data}} for {{datetime}}")
