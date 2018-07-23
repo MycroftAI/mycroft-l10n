@@ -11,7 +11,7 @@
 # 3) Run gettext on each file and place in appropriate folder.
 
 
-# VERSION 1.3
+# VERSION 1.2
 
 import os
 from glob import glob
