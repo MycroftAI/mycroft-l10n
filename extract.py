@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 # VERSION 1.2
+# Run this file in the Skills repo to extract all translatable strings.
 
 import os
 from glob import glob
@@ -10,7 +11,7 @@ btag = "\")"
 
 def main():
 
-    pathlist = glob("**/en-us/**.*", recursive=True)
+    pathlist = glob("skills/**/en-us/**.*", recursive=True)
 
     if not os.path.exists('tags'):
         os.mkdir('tags')
@@ -37,6 +38,8 @@ def main():
             
     skilllist = os.listdir('tags')
     for dir in skilllist:
+        if not os.path.exists('pots/' + dir):
+            os.makedirs('pots/' + dir)
         gtxtcommand = "xgettext --keyword=_ --language=Python --add-comments " + \
                     "--output='pots/" + dir +".pot' tags/" + dir + "/*.*"
         os.system(gtxtcommand)

@@ -18,11 +18,11 @@ from collections import MutableMapping
 from itertools import chain
 import sys
 
-from babel._compat import pickle
+from babel._compat import pickle, string_types
 
 
 def get_base_dir():
-    if getattr(sys, 'frozen', False):
+    if getattr(sys, 'frozen', False) and getattr(sys, '_MEIPASS', None):
         # we are running in a |PyInstaller| bundle
         basedir = sys._MEIPASS
     else:
@@ -41,6 +41,8 @@ def normalize_locale(name):
     Returns the normalized locale ID string or `None` if the ID is not
     recognized.
     """
+    if not name or not isinstance(name, string_types):
+        return None
     name = name.strip().lower()
     for locale_id in chain.from_iterable([_cache, locale_identifiers()]):
         if name == locale_id.lower():
@@ -54,6 +56,8 @@ def exists(name):
 
     :param name: the locale identifier string
     """
+    if not name or not isinstance(name, string_types):
+        return False
     if name in _cache:
         return True
     file_found = os.path.exists(os.path.join(_dirname, '%s.dat' % name))

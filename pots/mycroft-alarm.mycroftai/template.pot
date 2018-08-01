@@ -1,0 +1,523 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-31 17:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tags/mycroft-alarm.mycroftai/alarm.error.dialog:1
+msgid "Sorry. Are you trying to set an alarm? can you please rephrase that."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.error.dialog:2
+msgid ""
+"It seems you may be trying to set an alarm. can you please rephrase that."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.off.dialog:1
+msgid "the alarm has been turned off"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.off.dialog:2
+msgid "the alarm has been shut off"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.off.dialog:3
+msgid "the alarm has been stopped"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.scheduled.dialog:1
+msgid "Alarm set for {{time}}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.scheduled.dialog:2
+msgid "Creating a new alarm for {{time}}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.scheduled.dialog:3
+msgid "A new alarm for {{time}} was added"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.scheduled.repeating.dialog:1
+msgid "recurring Alarm set for {{time}}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.scheduled.repeating.dialog:2
+msgid "You have a new recurring alarm on {{time}}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.scheduled.repeating.dialog:3
+msgid "A new recurring alarm for {{time}} was added"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.status.dialog:1
+msgid "You have {{amount}} active {{plural}}. {{string}}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.status.intent:1
+msgid "what alarms do I have"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.status.intent:2
+msgid "do i have any alarms"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.status.intent:3
+msgid "do i have any alarms set"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.status.intent:4
+msgid "status of alarms"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.status.intent:5
+msgid "list alarms"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.status.intent:6
+msgid "any active alarms"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarm.stop.dialog:1
+msgid "Say, turn off alarm to end this alarm"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarms.list.amt.dialog:1
+msgid "You have {{amount}} active alarms."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarms.list.dialog:1
+#: tags/mycroft-alarm.mycroftai/delete.match.dialog:1
+msgid "For one time alarms: {{alarms}}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/alarms.list.repeat.dialog:1
+#: tags/mycroft-alarm.mycroftai/delete.match.repeat.dialog:1
+msgid "For recurring alarms: {{alarms}}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/am.list:1
+#: tags/mycroft-alarm.mycroftai/ampm.entity:3
+msgid "a.m."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/am.list:2
+#: tags/mycroft-alarm.mycroftai/ampm.entity:1
+msgid "am"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/am.list:3
+#: tags/mycroft-alarm.mycroftai/ampm.entity:2
+msgid "a.m"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/am.list:4
+#: tags/mycroft-alarm.mycroftai/ampm.entity:11
+msgid "morning"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/ampm.entity:4
+msgid "AM"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/ampm.entity:5
+msgid "A.M"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/ampm.entity:6
+#: tags/mycroft-alarm.mycroftai/pm.list:3
+msgid "pm"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/ampm.entity:7
+#: tags/mycroft-alarm.mycroftai/pm.list:1
+msgid "p.m."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/ampm.entity:8
+#: tags/mycroft-alarm.mycroftai/pm.list:2
+msgid "p.m"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/ampm.entity:9
+msgid "PM"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/ampm.entity:10
+msgid "P.M"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/ampm.entity:12
+#: tags/mycroft-alarm.mycroftai/pm.list:4
+msgid "evening"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/days.list:1
+msgid "monday"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/days.list:2
+msgid "tuesday"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/days.list:3
+msgid "wednesday"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/days.list:4
+msgid "thursday"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/days.list:5
+msgid "friday"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/days.list:6
+msgid "saturday"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/days.list:7
+msgid "sunday"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/daytype.entity:1
+msgid "(day | weekday | weekdays | weekend | weekends | tomorrow | today)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/daytype.entity:2
+msgid ""
+"(monday  | tuesday  | wednesday  | thursday  | friday  | saturday  | sunday )"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/daytype.entity:3
+msgid ""
+"(mondays  | tuesdays  | wednesdays  | thursdays  | fridays | saturdays  | "
+"sundays )"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/delete.alarm.dialog:1
+msgid "Okay, deleting {{name}} alarm"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/delete.alarm.recurring.dialog:1
+msgid "Okay, deleting the recurring {{name}} alarm"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/delete.all.intent:1
+msgid ""
+"(delete | remove | cancel | erase ) (all | all of | ) (the | my | ) alarms."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/delete.intent:1
+#, python-brace-format
+msgid ""
+"(cancel | remove | erase| delete) (my | the | ) {time} ({ampm}|) "
+"({daytype}|) alarm."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/delete.multimatch.dialog:1
+msgid "multiple matches found."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/delete.multimatch.response.dialog:1
+msgid "were you referring to the one time alarm, or the recurring alarm."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/delete.no.match.dialog:1
+msgid "I could not find a matching alarm to delete."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/delete.no.options.dialog:1
+msgid "Could not understand the response to delete alarms."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/everyday.list:1
+msgid "day"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/everyday.list:2
+msgid "everyday"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/everyday.list:3
+msgid "daily"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/exceptdaytype.entity:1
+msgid "(day | weekday | weekend)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/exceptdaytype.entity:2
+msgid ""
+"(monday | mondays | tuesday | tuesdays | wednesday | wednesdays | thursday | "
+"thursdays | friday | fridays | saturday | saturdays | sunday | sundays)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/exceptdaytype.entity:3
+msgid ""
+"(monday | mondays | tuesday | tuesdays | wednesday | wednesdays | thursday | "
+"thursdays | friday | fridays | saturday | saturdays | sunday | sundays) and "
+"(monday | mondays | tuesday | tuesdays | wednesday | wednesdays | thursday | "
+"thursdays | friday | fridays | saturday | saturdays | sunday | sundays)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/length.entity:1
+msgid "(#|##|###) (minute|minutes|hour|hours|day|days)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/length.entity:2
+msgid ""
+"(#|##|###) (minute|minutes|hour|hours|day|days) and (#|##|###) (minute|"
+"minutes|hour|hours|day|days)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/length.entity:3
+msgid ""
+"(#|##|###) (minute|minutes|hour|hours|day|days), (#|##|###) (minute|minutes|"
+"hour|hours|day|days), and (#|##|###) (minute|minutes|hour|hours|day|days)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/need.ampm.dialog:1
+msgid "No problem. Shall I set it for the morning or the evening?"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/need.ampm.dialog:2
+msgid "Should I set this for the morning or the evening?"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/need.ampm.dialog:3
+msgid "Of Course. Do you want to set this for the morning or the evening?"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/no.time.found.dialog:1
+msgid "I couldn't find a time to schedule that alarm."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/one.time.list:1
+msgid "one time"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/recurring.list:1
+msgid "recurring"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.recurring.intent:1
+#, python-brace-format
+msgid "(set|start) (a|an) alarm for {time} ({ampm}|) every {daytype}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.recurring.intent:2
+#, python-brace-format
+msgid "(set|start) (a|an) {time} ({ampm}|) alarm for every {daytype}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.recurring.intent:3
+#, python-brace-format
+msgid "(set|start) (a|an) recurring {time} ({ampm}|) alarm for {daytype}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.recurring.intent:4
+#, python-brace-format
+msgid ""
+"(set|start) (a|an) recurring alarm (for|on|at|) {time}({ampm}| {ampm}|) "
+"{daytype}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.recurring.intent:5
+#, python-brace-format
+msgid "(set|start) (a|an) alarm every {daytype} for {time} ({ampm}|)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.recurring.intent:6
+#, python-brace-format
+msgid "(set|start) (a|an) alarm for {time} {ampm} daily"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.recurring.intent:7
+#, python-brace-format
+msgid "(set|start) (a|an) daily alarm for {time} {ampm}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.24hr.intent:1
+#, python-brace-format
+msgid ""
+"wake me up (at {time}| for {time}| ) every {daytype} (at {time}| for "
+"{time}| ) (called {label} | )."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.24hr.intent:2
+#, python-brace-format
+msgid ""
+"(set | create | make) an alarm (clock | ) (at {time}| for {time}| ) every "
+"{daytype} (at {time}| for {time}| )  (called {label} | )."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.24hr.intent:3
+#, python-brace-format
+msgid ""
+"(set | create | make) an alarm (clock | ) (at {time}| for {time}| )   on "
+"(the|)  {daytype}."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.24hr.intent:4
+#, python-brace-format
+msgid ""
+"(set | create | make) an alarm (clock | ) (at {time}| for {time}| )  "
+"({daytype}|) "
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.24hr.intent:5
+#: tags/mycroft-alarm.mycroftai/set.time.intent:1
+#, python-brace-format
+msgid "wake me up in {length}."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.24hr.intent:6
+#: tags/mycroft-alarm.mycroftai/set.time.intent:2
+#, python-brace-format
+msgid "wake me up in {length} from now."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:3
+#, python-brace-format
+msgid "(set|start) (an|the) alarm for {length} from now."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:4
+#, python-brace-format
+msgid "(set|start) (an|the) alarm {length} from now."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:5
+#, python-brace-format
+msgid "(set|start) alarm for {length} from now."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:6
+#, python-brace-format
+msgid "(set|start) (an|a) alarm for {time} ({ampm}|) (this|) ({daytype}|)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:7
+#, python-brace-format
+msgid "(set|start) an alarm (for|on|) {daytype} {time} ({ampm}|)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:8
+#, python-brace-format
+msgid "(set|start) (a|an) {daytype} alarm for {time} ({ampm}|)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:9
+#, python-brace-format
+msgid "(set|start) (a|an) {daytype} alarm at {time} ({ampm}|)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:10
+#, python-brace-format
+msgid "(set|start) (a|an) {daytype} alarm on {time} ({ampm}|)"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:11
+#, python-brace-format
+msgid "(set|start) an alarm for {time} {ampm}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:12
+#, python-brace-format
+msgid "(set|start) an alarm for {time} {ampm} {daytype}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:13
+#, python-brace-format
+msgid "(set|start) an alarm for {time} {ampm} this {daytype}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:14
+#, python-brace-format
+msgid "(set|start) an alarm for {time} "
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:15
+#, python-brace-format
+msgid "(set|start) an alarm for {time} {daytype}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:16
+#, python-brace-format
+msgid "(set|start) an alarm for {time} this {daytype}"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:17
+#, python-brace-format
+msgid "(set|start) (a|an|) {time} alarm"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/set.time.intent:18
+#, python-brace-format
+msgid "(set|start) (a|an|) {time} {ampm} alarm"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/stop.intent:1
+msgid "stop alarm."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/stop.intent:2
+msgid "turn off alarm."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/stop.intent:3
+msgid "kill the alarm."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/stop.intent:4
+msgid "disable the alarm."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/stop.intent:5
+msgid "cancel the alarm."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/stop.intent:6
+msgid "I got it."
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/stop.intent:7
+msgid "that's enough!"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/stop.intent:8
+msgid "shut up!"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/time.entity:1
+msgid "#"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/time.entity:2
+msgid "##"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/time.entity:3
+msgid "##:##"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/time.entity:4
+msgid "noon"
+msgstr ""
+
+#: tags/mycroft-alarm.mycroftai/time.entity:5
+msgid "midnight"
+msgstr ""
