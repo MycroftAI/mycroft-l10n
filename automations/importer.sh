@@ -22,15 +22,16 @@
 MYCROFT_SKILLS_REPO=https://github.com/MycroftAI/mycroft-skills.git
 POOTLE_TRANSLATION_DIRECTORY=/var/www/pootle/env/lib/python2.7/site-packages/pootle/translations
 LOCAL_REPO_NAME=mycroft-skills
+AUTOMATIONS_DIR=~/mycroft-translate/automations
 
 # echo "MYCROFT_SKILLS_REPO is " $MYCROFT_SKILLS_REPO
 
 # Clone the latest `mycroft-skills` repo
 # and import all the gitmodules
-#git clone $MYCROFT_SKILLS_REPO $LOCAL_REPO_NAME
-#cd  $LOCAL_REPO_NAME
-#git submodule update --init
-#cd ../
+git clone $MYCROFT_SKILLS_REPO $LOCAL_REPO_NAME
+cd  $LOCAL_REPO_NAME
+git submodule update --init
+cd ../
 
 # Run the extract.py script
 # @TODO I'm fairly sure this script assumes the name of
@@ -40,15 +41,32 @@ LOCAL_REPO_NAME=mycroft-skills
 # copy the contents of the pots directory to the Pootle translations dir
 cp -r pots/* $POOTLE_TRANSLATION_DIRECTORY/
 
+# Activate the Pootle virtual environment
+cd /var/www/pootle/
+echo "pwd is: " $PWD
+source env/bin/activate
+
+# Run pootle commands to sync 
+pootle update_stores --project=mycroft-skills
+pootle sync_stores --project=mycroft-skills
+pootle update_stores --project=mycroft-skills
+
+# Deactivate the virtual environment
+deactivate
+
+
+# Prove that the script worked correctly
+#@TODO I'm not sure the best way to do this, 
+# possibly a curl to get a page and check for a string?
 
 # Clean up
 #@TODO assumes  cwd is this dir - may need to check that, change cwd
 
-#rm -R $LOCAL_REPO_NAME
-#cd $LOCAL_REPO_NAME
+cd $AUTOMATIONS_DIR
 
-#rm -R pots
-#rm -R tags
-
+echo "pwd is: " $PWD
+rm -R pots
+rm -R tags
+rm -R $LOCAL_REPO_NAME
 
 echo "end script" 
