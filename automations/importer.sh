@@ -52,6 +52,7 @@ pootle sync_stores --project=mycroft-skills
 pootle update_stores --project=mycroft-skills
 
 # Deactivate the virtual environment
+echo "pwd is: " $PWD
 deactivate
 
 
