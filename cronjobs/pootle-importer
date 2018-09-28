@@ -1,0 +1,22 @@
+# This shell script sits in cron.daily
+# and wraps the importer.sh in a mail hander
+
+
+# set up variables
+MAILTO=translate-admin@mycroft.ai
+
+# exit on error
+set -e
+
+# output to a log file and if there are errors, send email
+if ! ~/mycroft-translate/automations/importer.sh 2>&1 > /tmp/pootle-importer.log; then
+	#send email
+	(
+		echo "To:$MAILTO"
+		echo "Subject: Pootle Importer Daily Job failed"
+		echo "MIME-Version: 1.0"
+		echo "Content-Type: text/plain"
+		echo cat /tmp/pootle-importer.log
+	) | sendmail -oi $MAILTO
+
+fi
