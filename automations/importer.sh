@@ -4,6 +4,7 @@
 # `mycroft-skills` repo and import them into Pootle.
 #
 # kathy.reid@mycroft.ai
+# based on significant work by Andrew Wilson
 # September 2018
 
 # Summary of Steps
@@ -21,7 +22,7 @@
 # Setup variables
 MYCROFT_SKILLS_REPO=https://github.com/MycroftAI/mycroft-skills.git
 POOTLE_TRANSLATION_DIRECTORY=/var/www/pootle/env/lib/python2.7/site-packages/pootle/translations
-LOCAL_REPO_NAME=mycroft-skills
+LOCAL_REPO_NAME=~/mycroft-translate/automations/mycroft-skills
 AUTOMATIONS_DIR=~/mycroft-translate/automations
 
 # echo "MYCROFT_SKILLS_REPO is " $MYCROFT_SKILLS_REPO
