@@ -44,6 +44,7 @@ def main():
                 linelist = source.readlines()
                 for line in linelist:
                     os.system("echo line is:  " + line + "echo \n")
+                    line = line.replace(r'"', r'\"')
                     temp.write('{0}{1}{2}{3}'.format(ftag, line.strip("\n"), btag,
                             "\n"))
 
