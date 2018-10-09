@@ -18,22 +18,21 @@ def main():
 
     if not os.path.exists('pots'):
         os.mkdir('pots')
-
     for path in pathlist:
-        os.system("echo ======================================== \n")
-        os.system("echo Began tagging the path " + path)
+        print(" ======================================== \n")
+        print(" Began tagging the path " + path)
 
         dirpath, file = os.path.split(path)
-        os.system("echo \n first dirpath is:  " + dirpath)
+        print("\n first dirpath is:  " + dirpath)
         dirpath = os.path.split(dirpath)[0].replace('mycroft-skills/', '')
-        os.system("echo \n second dirpath is: " + dirpath)
-        os.system("echo \n file is:  " + file)
+        print("\n second dirpath is: " + dirpath)
+        print("\n file is:  " + file)
 
         skill, subfolder = os.path.split(dirpath)
-        os.system("echo \n skill is:  " + skill)
+        print("\n skill is:  " + skill)
 
         tagpath = os.path.join('tags', skill)
-        os.system("echo \n tagpath is:  " + tagpath)
+        print("\n tagpath is:  " + tagpath)
 
 
         with open(path, 'r') as source:
@@ -43,20 +42,21 @@ def main():
             with open(os.path.join(tagdir,file), 'w') as temp:
                 linelist = source.readlines()
                 for line in linelist:
-                    os.system("echo line is:  " + line + "echo \n")
                     line = line.replace(r'"', r'\"')
+                    print("line is:  " + line)
                     temp.write('{0}{1}{2}{3}'.format(ftag, line.strip("\n"), btag,
                             "\n"))
 
     skilllist = os.listdir('tags')
+
     for dir in skilllist:
-        os.system("dir is :  " + dir + "\n \n \n")
+        print("dir is :  " + dir + "\n \n \n")
         if not os.path.exists('pots/' + dir):
             os.makedirs('pots/' + dir)
         gtxtcommand = "xgettext --keyword=_ --language=Python --add-comments " + \
                     "--output='pots/" + dir +".pot' tags/" + dir + "/*.*"
 
-        os.system("echo  \n gtxtcommand is:  " + gtxtcommand + "echo \n")
+        print("\n gtxtcommand is:  " + gtxtcommand + "\n")
         os.system(gtxtcommand)
 
 if __name__ == '__main__':
