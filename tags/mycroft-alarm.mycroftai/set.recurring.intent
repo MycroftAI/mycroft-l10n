@@ -1,7 +1,0 @@
-_("(set|start) (a|an) alarm for {time} ({ampm}|) every {daytype}")
-_("(set|start) (a|an) {time} ({ampm}|) alarm for every {daytype}")
-_("(set|start) (a|an) recurring {time} ({ampm}|) alarm for {daytype}")
-_("(set|start) (a|an) recurring alarm (for|on|at|) {time}({ampm}| {ampm}|) {daytype}")
-_("(set|start) (a|an) alarm every {daytype} for {time} ({ampm}|)")
-_("(set|start) (a|an) alarm for {time} {ampm} daily")
-_("(set|start) (a|an) daily alarm for {time} {ampm}")

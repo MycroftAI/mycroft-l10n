@@ -1,3 +1,0 @@
-_("(day | weekday | weekend)")
-_("(monday | mondays | tuesday | tuesdays | wednesday | wednesdays | thursday | thursdays | friday | fridays | saturday | saturdays | sunday | sundays)")
-_("(monday | mondays | tuesday | tuesdays | wednesday | wednesdays | thursday | thursdays | friday | fridays | saturday | saturdays | sunday | sundays) and (monday | mondays | tuesday | tuesdays | wednesday | wednesdays | thursday | thursdays | friday | fridays | saturday | saturdays | sunday | sundays)")

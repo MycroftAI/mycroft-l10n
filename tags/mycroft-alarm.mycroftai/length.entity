@@ -1,3 +1,0 @@
-_("(#|##|###) (minute|minutes|hour|hours|day|days)")
-_("(#|##|###) (minute|minutes|hour|hours|day|days) and (#|##|###) (minute|minutes|hour|hours|day|days)")
-_("(#|##|###) (minute|minutes|hour|hours|day|days), (#|##|###) (minute|minutes|hour|hours|day|days), and (#|##|###) (minute|minutes|hour|hours|day|days)")

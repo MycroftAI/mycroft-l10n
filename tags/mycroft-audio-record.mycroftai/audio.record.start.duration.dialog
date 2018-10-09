@@ -1,3 +1,0 @@
-_("Recording audio for {{duration}} seconds")
-_("Starting audio recording for {{duration}} seconds")
-_("Audio recording for {{duration}} seconds initialized")

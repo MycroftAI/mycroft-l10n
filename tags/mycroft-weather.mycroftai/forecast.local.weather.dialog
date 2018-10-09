@@ -1,3 +1,0 @@
-_("{{day}} it will be {{condition}}, with a high of {{temp_max}} and a low of {{temp_min}}")
-_("{{day}} the high will be {{temp_max}} and the low {{temp_min}}, with {{condition}} conditions")
-_("{{day}}'s forecast is {{temp_max}} for a high and {{temp_min}} for a low")
