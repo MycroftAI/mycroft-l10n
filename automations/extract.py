@@ -42,6 +42,7 @@ def main():
             with open(os.path.join(tagdir,file), 'w') as temp:
                 linelist = source.readlines()
                 for line in linelist:
+                    line = line.replace(r'"', r'\"')
                     print("line is:  " + line)
                     temp.write('{0}{1}{2}{3}'.format(ftag, line.strip("\n"), btag,
                             "\n"))
