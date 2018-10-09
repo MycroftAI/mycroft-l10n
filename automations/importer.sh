@@ -25,6 +25,9 @@ POOTLE_TRANSLATION_DIRECTORY=/var/www/pootle/env/lib/python2.7/site-packages/poo
 LOCAL_REPO_NAME=~/mycroft-translate/automations/mycroft-skills
 AUTOMATIONS_DIR=~/mycroft-translate/automations
 
+# check to see that the  xgettext utility is available, abort if not
+command -v xgettext >/dev/null 2>&1 || { echo >&2 "I require gettext but it's not installed.  You need to run `sudo apt-get install gettext`. Aborting."; exit 1;} 
+
 # echo "MYCROFT_SKILLS_REPO is " $MYCROFT_SKILLS_REPO
 
 # Clone the latest `mycroft-skills` repo
@@ -48,13 +51,13 @@ echo "pwd is: " $PWD
 source env/bin/activate
 
 # Run pootle commands to sync 
-pootle update_stores --project=mycroft-skills
-pootle sync_stores --project=mycroft-skills
-pootle update_stores --project=mycroft-skills
+ pootle update_stores --project=mycroft-skills
+ pootle sync_stores --project=mycroft-skills
+ pootle update_stores --project=mycroft-skills
 
 # Deactivate the virtual environment
-echo "pwd is: " $PWD
-deactivate
+ echo "pwd is: " $PWD
+ deactivate
 
 
 # Prove that the script worked correctly
@@ -67,8 +70,12 @@ deactivate
 cd $AUTOMATIONS_DIR
 
 echo "pwd is: " $PWD
+echo "now cleaning up directories that were created..."
+echo "removing pots directory..."
 rm -R pots
+echo "removing tags directory..."
 rm -R tags
+echo "removing " $LOCAL_REPO_NAME
 rm -R $LOCAL_REPO_NAME
 
 echo "end script" 

@@ -53,11 +53,13 @@ def main():
         print("dir is :  " + dir + "\n \n \n")
         if not os.path.exists('pots/' + dir):
             os.makedirs('pots/' + dir)
+            print("\n creating dir: " + ('pots/' + dir))
         gtxtcommand = "xgettext --keyword=_ --language=Python --add-comments " + \
                     "--output='pots/" + dir +".pot' tags/" + dir + "/*.*"
 
         print("\n gtxtcommand is:  " + gtxtcommand + "\n")
         os.system(gtxtcommand)
+        print("\n created file: " +  'pots/' + dir + '.pot')
 
 if __name__ == '__main__':
     main()
