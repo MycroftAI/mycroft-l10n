@@ -21,7 +21,7 @@
 
 # Setup variables
 MYCROFT_SKILLS_REPO=https://github.com/MycroftAI/mycroft-skills.git
-POOTLE_TRANSLATION_DIRECTORY=/var/www/pootle/env/lib/python2.7/site-packages/pootle/translations
+POOTLE_TRANSLATION_DIRECTORY=/var/www/pootle/env/lib/python2.7/site-packages/pootle/translations/mycroft-skills
 LOCAL_REPO_NAME=~/mycroft-translate/automations/mycroft-skills
 AUTOMATIONS_DIR=~/mycroft-translate/automations
 
