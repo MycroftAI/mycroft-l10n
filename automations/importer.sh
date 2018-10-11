@@ -50,10 +50,77 @@ cd /var/www/pootle/
 echo "pwd is: " $PWD
 source env/bin/activate
 
-# Run pootle commands to sync 
- pootle update_stores --project=mycroft-skills
- pootle sync_stores --project=mycroft-skills
- pootle update_stores --project=mycroft-skills
+# Update from filesystem to database
+pootle update_stores --project=mycroft-skills
+
+# Update from database to filesystem
+pootle sync_stores --project=mycroft-skills
+
+# For each Skill, for each language, we need to create a *.po file from a *.pot file
+# Example: pot2po -t decide-skill-ca.po decide-skill.pot decide-skill-ca.po
+# More info at: http://docs.translatehouse.org/projects/pootle/en/stable-2.8.x/server/project_setup.html#project-setup-updating-strings
+ 
+# Find which languages are in use
+# Assumes the virtual environment is still activated
+
+cd $POOTLE_TRANSLATION_DIRECTORY/
+
+LANGUAGE_LIST="$(pootle list_languages)"
+
+echo "getting list of languages ..."
+
+i=0
+for LANGUAGE in $LANGUAGE_LIST
+do
+    echo "adding " $LANGUAGE "to array ..."
+    langArr[$i]=$LANGUAGE
+    i=$((i+1))
+done
+
+echo "there are " $i "languages"
+
+cd $POOTLE_TRANSLATION_DIRECTORY
+
+SKILL_LIST="$(ls | grep ".pot" | grep -v spotify)"
+
+echo "getting list of skills ..." 
+
+j=0
+for SKILL in $SKILL_LIST
+do
+   echo "adding " $SKILL "to array ..."
+   skillArr[$j]=$SKILL
+   tmp=${skillArr[$j]}
+   tmp2=${tmp%%.pot*}
+   skillArr[$j]=$tmp2
+   echo "added " $tmp2 "to array ..."
+   j=$((j+1))
+ 
+done
+
+echo "there are " $j "skills"
+
+# Now, we loop through both and create the relevant *.po files
+
+echo "now creating *.po files ..."
+
+m=0
+for k in "${langArr[@]}"
+do
+    echo "k is: " $k
+    for l in "${skillArr[@]}"
+    do
+      echo "l is: " $l
+      pot2po -t $l-$k.po $l.pot $l-$k.po
+      m=$((m+1))
+    done
+done
+
+echo "created " $m "*.po files"
+
+
+# Update from file system to database
+pootle update_stores --project=mycroft-skills
 
 # Deactivate the virtual environment
  echo "pwd is: " $PWD
