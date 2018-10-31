@@ -22,13 +22,14 @@
 # Setup variables
 MYCROFT_SKILLS_REPO=https://github.com/MycroftAI/mycroft-skills.git
 POOTLE_TRANSLATION_DIRECTORY=/var/www/pootle/env/lib/python2.7/site-packages/pootle/translations/mycroft-skills
-LOCAL_REPO_NAME=~/mycroft-translate/automations/mycroft-skills
-AUTOMATIONS_DIR=~/mycroft-translate/automations
+LOCAL_REPO_NAME=/root/mycroft-translate/automations/mycroft-skills
+AUTOMATIONS_DIR=/root/mycroft-translate/automations
 
 # check to see that the  xgettext utility is available, abort if not
 command -v xgettext >/dev/null 2>&1 || { echo >&2 "I require gettext but it's not installed.  You need to run `sudo apt-get install gettext`. Aborting."; exit 1;} 
 
-# echo "MYCROFT_SKILLS_REPO is " $MYCROFT_SKILLS_REPO
+echo "MYCROFT_SKILLS_REPO is " $MYCROFT_SKILLS_REPO
+echo "LOCAL_REPO_NAME is " $LOCAL_REPO_NAME
 
 # Clone the latest `mycroft-skills` repo
 # and import all the gitmodules
@@ -40,7 +41,7 @@ cd ../
 # Run the extract.py script
 # @TODO I'm fairly sure this script assumes the name of
 # the locally cloned mycroft-skills repo, may need to update that
-./extract.py
+python3 extract.py
 
 # copy the contents of the pots directory to the Pootle translations dir
 cp -r pots/* $POOTLE_TRANSLATION_DIRECTORY/
@@ -68,6 +69,7 @@ cd $POOTLE_TRANSLATION_DIRECTORY/
 LANGUAGE_LIST="$(pootle list_languages)"
 
 echo "getting list of languages ..."
+echo $LANGUAGE_LIST
 
 i=0
 for LANGUAGE in $LANGUAGE_LIST
@@ -81,9 +83,10 @@ echo "there are " $i "languages"
 
 cd $POOTLE_TRANSLATION_DIRECTORY
 
-SKILL_LIST="$(ls | grep ".pot" | grep -v spotify)"
+SKILL_LIST="$(ls | grep ".pot$" )"
 
 echo "getting list of skills ..." 
+echo $SKILL_LIST
 
 j=0
 for SKILL in $SKILL_LIST
@@ -139,10 +142,10 @@ cd $AUTOMATIONS_DIR
 echo "pwd is: " $PWD
 echo "now cleaning up directories that were created..."
 echo "removing pots directory..."
-rm -R pots
+#rm -R pots
 echo "removing tags directory..."
-rm -R tags
+#rm -R tags
 echo "removing " $LOCAL_REPO_NAME
-rm -R $LOCAL_REPO_NAME
+#rm -R $LOCAL_REPO_NAME
 
 echo "end script" 

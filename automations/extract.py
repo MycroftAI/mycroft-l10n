@@ -11,14 +11,26 @@ btag = "\")"
 
 def main():
 
-    pathlist = glob("mycroft-skills/**/en-us/**.*", recursive=True)
+    oldstylepaths = glob("mycroft-skills/**/en-us/**.*", recursive=True)
+    print("\n pathlist is: " )  
+    for path in oldstylepaths:
+        print (path) 
+
+    # add locale path to the pathlist
+    newstylepaths = glob("mycroft-skills/locale/en-us/**.*", recursive=True)
+    print("\n pathlist is: " )  
+    for path in newstylepaths:
+        print (path)
+
+    combinedpaths = oldstylepaths + newstylepaths
+
 
     if not os.path.exists('tags'):
         os.mkdir('tags')
 
     if not os.path.exists('pots'):
         os.mkdir('pots')
-    for path in pathlist:
+    for path in combinedpaths:
         print(" ======================================== \n")
         print(" Began tagging the path " + path)
 
