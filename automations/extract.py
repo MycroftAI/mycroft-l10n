@@ -10,26 +10,30 @@ ftag = "_(\""
 btag = "\")"
 
 def main():
-
+    # add old dialog/en-us, vocab/en-us style paths
     oldstylepaths = glob("mycroft-skills/**/en-us/**.*", recursive=True)
-    print("\n pathlist is: " )  
-    for path in oldstylepaths:
-        print (path) 
 
     # add locale path to the pathlist
     newstylepaths = glob("mycroft-skills/locale/en-us/**.*", recursive=True)
-    print("\n pathlist is: " )  
-    for path in newstylepaths:
-        print (path)
 
     combinedpaths = oldstylepaths + newstylepaths
+    print("\n pathlist is: " )
+    for path in combinedpaths:
+        print (path)
 
+    # print a count of the paths to aid in debugging
+    print("\n there were",  sum('locale/' in s for s in combinedpaths), "LOCALE paths added")
+    print("\n there were", sum('dialog/' in s for s in combinedpaths), "DIALOG paths added")
+    print("\n there were", sum('vocab/' in s for s in combinedpaths) , "VOCAB paths added")
+    print("\n there were", sum('mycroft-skills/' in s for s in combinedpaths), " paths added in total")
 
+    # create the tags and pots directories
     if not os.path.exists('tags'):
         os.mkdir('tags')
 
     if not os.path.exists('pots'):
         os.mkdir('pots')
+
     for path in combinedpaths:
         print(" ======================================== \n")
         print(" Began tagging the path " + path)
@@ -46,14 +50,16 @@ def main():
         tagpath = os.path.join('tags', skill)
         print("\n tagpath is:  " + tagpath)
 
-
+        # write out the files to a `tags` dir
         with open(path, 'r') as source:
             tagdir = os.path.join('tags', skill)
+            print("\n tagdir is:  " + tagdir)
             if not os.path.exists(tagdir):
                 os.makedirs(tagdir)
             with open(os.path.join(tagdir,file), 'w') as temp:
                 linelist = source.readlines()
                 for line in linelist:
+                    print("line before replace() is:  " + line)
                     line = line.replace(r'"', r'\"')
                     print("line is:  " + line)
                     temp.write('{0}{1}{2}{3}'.format(ftag, line.strip("\n"), btag,
@@ -66,11 +72,12 @@ def main():
         if not os.path.exists('pots/' + dir):
             os.makedirs('pots/' + dir)
             print("\n creating dir: " + ('pots/' + dir))
-        gtxtcommand = "xgettext --keyword=_ --language=Python --add-comments " + \
+        gtxtcommand = "xgettext --from-code --keyword=_ --language=Python --add-comments " + \
                     "--output='pots/" + dir +".pot' tags/" + dir + "/*.*"
 
         print("\n gtxtcommand is:  " + gtxtcommand + "\n")
-        os.system(gtxtcommand)
+        exitstatus = os.system(gtxtcommand)
+        print("\n exit status: ", exitstatus, "\n")
         print("\n created file: " +  'pots/' + dir + '.pot')
 
 if __name__ == '__main__':
