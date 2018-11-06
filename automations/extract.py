@@ -72,7 +72,7 @@ def main():
         if not os.path.exists('pots/' + dir):
             os.makedirs('pots/' + dir)
             print("\n creating dir: " + ('pots/' + dir))
-        gtxtcommand = "xgettext --from-code --keyword=_ --language=Python --add-comments " + \
+        gtxtcommand = "xgettext --from-code=utf-8 --keyword=_ --language=Python --add-comments " + \
                     "--output='pots/" + dir +".pot' tags/" + dir + "/*.*"
 
         print("\n gtxtcommand is:  " + gtxtcommand + "\n")

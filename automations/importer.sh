@@ -43,13 +43,18 @@ cd ../
 # the locally cloned mycroft-skills repo, may need to update that
 python3 extract.py
 
-# copy the contents of the pots directory to the Pootle translations dir
-cp -r pots/* $POOTLE_TRANSLATION_DIRECTORY/
 
 # Activate the Pootle virtual environment
 cd /var/www/pootle/
 echo "pwd is: " $PWD
 source env/bin/activate
+
+# Update from database to filesystem
+pootle sync_stores --project=mycroft-skills
+
+
+# copy the contents of the pots directory to the Pootle translations dir
+cp -r $AUTOMATIONS_DIR/pots/* $POOTLE_TRANSLATION_DIRECTORY/
 
 # Update from filesystem to database
 pootle update_stores --project=mycroft-skills
@@ -142,10 +147,10 @@ cd $AUTOMATIONS_DIR
 echo "pwd is: " $PWD
 echo "now cleaning up directories that were created..."
 echo "removing pots directory..."
-#rm -R pots
+rm -R pots
 echo "removing tags directory..."
-#rm -R tags
+rm -R tags
 echo "removing " $LOCAL_REPO_NAME
-#rm -R $LOCAL_REPO_NAME
+rm -R $LOCAL_REPO_NAME
 
 echo "end script" 
