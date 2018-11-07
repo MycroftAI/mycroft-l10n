@@ -11,7 +11,7 @@ MAILTO=translate-admin@mycroft.ai
 set -e
 
 # output to a log file and if there are errors, send email
-if ! ~/mycroft-translate/automations/importer.sh 2>&1 > /tmp/pootle-importer.log; then
+if ! /root/mycroft-translate/automations/importer.sh 2>&1 > /tmp/pootle-importer.log; then
 	#send email
 	(
 		echo "To:$MAILTO"
@@ -19,6 +19,7 @@ if ! ~/mycroft-translate/automations/importer.sh 2>&1 > /tmp/pootle-importer.log
 		echo "MIME-Version: 1.0"
 		echo "Content-Type: text/plain"
 		echo cat /tmp/pootle-importer.log
+		echo "\nHOST: " $(hostname)
 	) | sendmail -oi $MAILTO
 
 fi
