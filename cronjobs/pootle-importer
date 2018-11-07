@@ -17,7 +17,7 @@ if ! /root/mycroft-translate/automations/importer.sh 2>&1 > /tmp/pootle-importer
 		echo "MIME-Version: 1.0"
 		echo "Content-Type: text/plain"
 		echo cat /tmp/pootle-importer.log
-                echo "\nHOST: " $(hostname)
+		echo "\nHOST: " $(hostname)
 	) | sendmail -oi $MAILTO
 
 fi
