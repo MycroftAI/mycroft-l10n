@@ -11,21 +11,17 @@ btag = "\")"
 
 def main():
     # add old dialog/en-us, vocab/en-us style paths
-    oldstylepaths = glob("mycroft-skills/**/en-us/**.*", recursive=True)
+    paths = glob("mycroft-skills/**/en-us/**.*", recursive=True)
 
-    # add locale path to the pathlist
-    newstylepaths = glob("mycroft-skills/locale/en-us/**.*", recursive=True)
-
-    combinedpaths = oldstylepaths + newstylepaths
     print("\n pathlist is: " )
-    for path in combinedpaths:
+    for path in paths:
         print (path)
 
     # print a count of the paths to aid in debugging
-    print("\n there were",  sum('locale/' in s for s in combinedpaths), "LOCALE paths added")
-    print("\n there were", sum('dialog/' in s for s in combinedpaths), "DIALOG paths added")
-    print("\n there were", sum('vocab/' in s for s in combinedpaths) , "VOCAB paths added")
-    print("\n there were", sum('mycroft-skills/' in s for s in combinedpaths), " paths added in total")
+    print("\n there were",  sum('locale/' in s for s in paths), "LOCALE paths added")
+    print("\n there were", sum('dialog/' in s for s in paths), "DIALOG paths added")
+    print("\n there were", sum('vocab/' in s for s in paths) , "VOCAB paths added")
+    print("\n there were", sum('mycroft-skills/' in s for s in paths), " paths added in total")
 
     # create the tags and pots directories
     if not os.path.exists('tags'):
@@ -34,7 +30,7 @@ def main():
     if not os.path.exists('pots'):
         os.mkdir('pots')
 
-    for path in combinedpaths:
+    for path in paths:
         print(" ======================================== \n")
         print(" Began tagging the path " + path)
 
