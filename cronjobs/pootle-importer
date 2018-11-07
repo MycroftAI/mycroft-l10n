@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # This shell script sits in cron.daily
 # and wraps the importer.sh in a mail hander
 
