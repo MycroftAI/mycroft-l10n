@@ -5,6 +5,7 @@
 
 import os
 from glob import glob
+import json
 
 ftag = "_(\""
 btag = "\")"
@@ -30,6 +31,7 @@ def main():
     if not os.path.exists('pots'):
         os.mkdir('pots')
 
+    d = {}
     for path in paths:
         print(" ======================================== \n")
         print(" Began tagging the path " + path)
@@ -46,6 +48,9 @@ def main():
         tagpath = os.path.join('tags', skill)
         print("\n tagpath is:  " + tagpath)
 
+        if skill not in d:
+            d[skill] = {}
+
         # write out the files to a `tags` dir
         with open(path, 'r') as source:
             tagdir = os.path.join('tags', skill)
@@ -56,12 +61,18 @@ def main():
                 linelist = source.readlines()
                 for line in linelist:
                     print("line before replace() is:  " + line)
-                    line = line.replace(r'"', r'\"')
+                    line = line.replace(r'"', r'\"').strip("\n")
                     print("line is:  " + line)
-                    temp.write('{0}{1}{2}{3}'.format(ftag, line.strip("\n"), btag,
-                            "\n"))
+                    temp.write('{0}{1}{2}{3}'.format(ftag, line, btag, "\n"))
+                    files = d[skill].get(line, []) + [file]
+                    d[skill][line] = files
 
     skilllist = os.listdir('tags')
+
+    # Write occurrence map to occurrences.json
+    # This file will be used by the PR generation tool to map strings to files
+    with open('occurrences.json', 'w') as fp:
+        json.dump(d, fp, indent=2)
 
     for dir in skilllist:
         print("dir is :  " + dir + "\n \n \n")
