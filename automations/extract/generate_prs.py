@@ -26,7 +26,7 @@ from requests import get
 import polib
 from github_actions import get_work_repos, create_work_dir, create_or_edit_pr
 
-DEFAULT_BRANCH = '18.08'
+DEFAULT_BRANCH = '19.02'
 SKILLS_URL = ('https://raw.githubusercontent.com/MycroftAI/mycroft-skills/'
               '{}/.gitmodules')
 
@@ -132,7 +132,7 @@ pootle_langs = {
 
 def main():
     skill_repos = get_skill_repos()
-    
+
     for skill in skill_repos:
         # Get repo information
         skill_url = skill_repos[skill]
