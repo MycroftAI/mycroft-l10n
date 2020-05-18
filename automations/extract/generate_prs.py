@@ -143,7 +143,7 @@ def main():
         fork, upstream = get_work_repos(skill_url)
         work = create_work_dir(upstream, fork) # local clone
         # Checkout new branch
-        branch = 'translate-' + str(date.today())
+        branch = 'translations'
         work.checkout('-b', branch)
 
         langs = []
