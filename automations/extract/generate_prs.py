@@ -24,7 +24,7 @@ from requests import get
 import polib
 from github_actions import get_work_repos, create_work_dir, create_or_edit_pr
 
-DEFAULT_BRANCH = '19.02'
+DEFAULT_BRANCH = '20.02'
 SKILLS_URL = ('https://raw.githubusercontent.com/MycroftAI/mycroft-skills/'
               '{}/.gitmodules')
 
