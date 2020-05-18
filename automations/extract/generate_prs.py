@@ -129,7 +129,16 @@ pootle_langs = {
     'de-de': 'de',
     'fr-fr': 'fr',
     'ru-ru': 'ru',
-    'es-es': 'es'
+    'es-es': 'es',
+    'es-lm': 'es_LM',
+    'ro-ro': 'ro',
+    'hu-hu': 'hu',
+    'nl-nl': 'nl',
+    'pt-br': 'pt_BR',
+    'it-it': 'it',
+    'da-dk': 'da',
+    'tr-tr': 'tr',
+    'el-gr': 'el'
 }
 
 
