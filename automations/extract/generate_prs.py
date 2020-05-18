@@ -151,9 +151,10 @@ def main():
         if 'mycroftai/' not in skill_url.lower():
             print('Skipping {}'.format(skill_url))
             continue
+        print('Running {}'.format(skill_url))
         # Get git repo and github connections
         fork, upstream = get_work_repos(skill_url)
-        work = create_work_dir(upstream, fork) # local clone
+        work = create_work_dir(upstream, fork)  # local clone
         # Checkout new branch
         branch = 'translations'
         work.checkout('-b', branch)
@@ -236,6 +237,7 @@ def main():
         else:
             print('\tNo changes for {}, skipping PR'.format(skill))
         work.tmp_remove()
+
 
 if __name__ == '__main__':
     main()
