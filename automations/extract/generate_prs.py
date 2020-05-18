@@ -16,11 +16,9 @@
 #
 
 
-import sys
 import os
-from os.path import join, basename, exists
-from glob import glob
-from datetime import date
+import json
+from os.path import join, exists
 from requests import get
 
 import polib
@@ -65,7 +63,12 @@ def download_lang(lang):
 
     # use zip to unpack
 
-    return path # Path to directory with po_files
+    # return path # Path to directory with po_files
+    pass
+
+
+with open('occurrences.json') as f:
+    occurrences = json.load(f)
 
 
 def is_translated(path):
@@ -91,7 +94,7 @@ def is_translated(path):
     return translated_files == all_files
 
 
-def parse_po_file(path):
+def parse_po_file(path, skill):
     """ Create dictionary with translated files as key containing
     the file content as a list.
 
@@ -106,8 +109,8 @@ def parse_po_file(path):
     po = polib.pofile(path)
 
     for entity in po:
-        for out_file, _ in entity.occurrences:
-            f = out_file.split('/')[-1] # Get only the filename
+        # Escape the citation signs (")
+        for f in occurrences[skill][entity.msgid.replace("\"", r"\"")]:
             content = out_files.get(f, [])
             content.append(entity.msgstr)
             out_files[f] = content
@@ -158,7 +161,7 @@ def main():
                 continue
             langs.append(lang)
             print('Processing {}'.format(f))
-            translation = parse_po_file(f)
+            translation = parse_po_file(f, skill)
             # Modify repo
 
             if 'locale' in os.listdir(work.tmp_path):
@@ -182,11 +185,14 @@ def main():
                     insert_translation(join(work.tmp_path, path),
                         {k: translation[k] for k in translation if
                             k.endswith('.list')})
+                    insert_translation(join(work.tmp_path, path),
+                        {k: translation[k] for k in translation if
+                            k.endswith('.value')})
                     work.add(join(path, '*'))  # add the new files
                 # handle vocab directory
                 if exists(join(work.tmp_path, 'vocab')):
                     path = join('vocab', lang)
-                    if exists(join(work.tmp_path,path)):
+                    if exists(join(work.tmp_path, path)):
                         work.rm(join(path, '*'))  # Remove all files
                     os.makedirs(join(work.tmp_path, path))
                     insert_translation(join(work.tmp_path, path),
