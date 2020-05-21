@@ -142,6 +142,13 @@ pootle_langs = {
 }
 
 
+def po_file_path(skill, lang):
+    return join(pootle_langs[lang] + '-mycroft-skills',
+                pootle_langs[lang],
+                'mycroft-skills',
+                skill + '-' + pootle_langs[lang] + '.po')
+
+
 def main():
     skill_repos = get_skill_repos()
 
@@ -154,89 +161,93 @@ def main():
         print('Running {}'.format(skill_url))
         # Get git repo and github connections
         fork, upstream = get_work_repos(skill_url)
-        work = create_work_dir(upstream, fork)  # local clone
+        work_dir = create_work_dir(upstream, fork)  # local clone
         # Checkout new branch
         branch = 'translations'
-        work.checkout('-b', branch)
+        work_dir.checkout('-b', branch)
 
-        langs = []
-        for lang in pootle_langs:
-            # Build po-file path
-            f = (join(pootle_langs[lang] + '-mycroft-skills',
-                      pootle_langs[lang],
-                      'mycroft-skills',
-                      skill + '-' + pootle_langs[lang] + '.po'))
-            if not exists(f) or not is_translated(f):
-                print('Skipping {}'.format(f))
-                continue
-            langs.append(lang)
-            print('Processing {}'.format(f))
-            translation = parse_po_file(f, skill)
-            # Modify repo
+        # Update language files
+        langs = update_skill(skill, work_dir)
 
-            if 'locale' in os.listdir(work.tmp_path):
-                path = join('locale', lang)
-                if exists(join(work.tmp_path, path)):
-                    work.rm(join(path, '*'))  # Remove all files
-                os.makedirs(join(work.tmp_path, path))
-                # insert new translations
-                insert_translation(join(work.tmp_path, path), translation)
-                work.add(join(path, '*'))  # add the new files
-            else:
-                # handle dialog directory
-                if exists(join(work.tmp_path, 'dialog')):
-                    path = join('dialog', lang)
-                    if exists(join(work.tmp_path, path)):
-                        work.rm(join(path, '*'))  # Remove all files
-                    os.makedirs(join(work.tmp_path, path))
-                    insert_translation(join(work.tmp_path, path),
-                        {k: translation[k] for k in translation if
-                            k.endswith('.dialog')})
-                    insert_translation(join(work.tmp_path, path),
-                        {k: translation[k] for k in translation if
-                            k.endswith('.list')})
-                    insert_translation(join(work.tmp_path, path),
-                        {k: translation[k] for k in translation if
-                            k.endswith('.value')})
-                    work.add(join(path, '*'))  # add the new files
-                # handle vocab directory
-                if exists(join(work.tmp_path, 'vocab')):
-                    path = join('vocab', lang)
-                    if exists(join(work.tmp_path, path)):
-                        work.rm(join(path, '*'))  # Remove all files
-                    os.makedirs(join(work.tmp_path, path))
-                    insert_translation(join(work.tmp_path, path),
-                        {k: translation[k] for k in translation if
-                            k.endswith('.intent')})
-                    insert_translation(join(work.tmp_path, path),
-                        {k: translation[k] for k in translation if
-                            k.endswith('.voc')})
-                    insert_translation(join(work.tmp_path, path),
-                        {k: translation[k] for k in translation if
-                            k.endswith('.entity')})
-                    work.add(join(path, '*'))  # add the new files
-                # Handle regex dir
-                path = join('regex', lang)
-                if exists(join(work.tmp_path, 'regex')):
-                    if exists(join(work.tmp_path,path)):
-                        work.rm(join(path, '*'))  # Remove all files
-                    os.makedirs(join(work.tmp_path, path))
-                    insert_translation(join(work.tmp_path, path),
-                        {k: translation[k] for k in translation if
-                            k.endswith('.rx')})
-                    work.add(join(path, '*'))  # add the new files
-
-        if work.diff('--cached') != '':
+        # If a change has been made commit and make a PR
+        if work_dir.diff('--cached') != '':
             print("\tCreating PR for {}".format(skill))
             # Commit
-            work.commit('-m', 'Update translations')
+            work_dir.commit('-m', 'Update translations')
             # Push branch to fork
-            work.push('-f', 'work', branch)
+            work_dir.push('-f', 'work', branch)
             # Open PR
             create_or_edit_pr(branch, upstream, langs)
         else:
             print('\tNo changes for {}, skipping PR'.format(skill))
-        work.tmp_remove()
+        work_dir.tmp_remove()
+
+
+def map_translations(translation, filetype):
+    return {k: translation[k] for k in translation if k.endswith(filetype)}
+
+
+def update_skill(skill, work):
+    langs = []
+    for lang in pootle_langs:
+        # Build po-file path
+        f = po_file_path(skill, lang)
+
+        if not (exists(f) and is_translated(f)):
+            print('Skipping {}'.format(f))
+            continue
+
+        langs.append(lang)
+        print('Processing {}'.format(f))
+        translation = parse_po_file(f, skill)
+
+        # Modify skill
+        if 'locale' in os.listdir(work.tmp_path):
+            path = join('locale', lang)
+            if exists(join(work.tmp_path, path)):
+                work.rm(join(path, '*'))  # Remove all files
+            os.makedirs(join(work.tmp_path, path))
+            # insert new translations
+            insert_translation(join(work.tmp_path, path), translation)
+            work.add(join(path, '*'))  # add the new files
+        else:
+            # handle dialog directory
+            if exists(join(work.tmp_path, 'dialog')):
+                path = join('dialog', lang)
+                if exists(join(work.tmp_path, path)):
+                    work.rm(join(path, '*'))  # Remove all files
+                os.makedirs(join(work.tmp_path, path))
+                insert_translation(join(work.tmp_path, path),
+                                   map_translations(translation, '.dialog'))
+                insert_translation(join(work.tmp_path, path),
+                                   map_translations(translation, '.list'))
+                insert_translation(join(work.tmp_path, path),
+                                   map_translations(translation, '.value'))
+                work.add(join(path, '*'))  # add the new files
+            # handle vocab directory
+            if exists(join(work.tmp_path, 'vocab')):
+                path = join('vocab', lang)
+                if exists(join(work.tmp_path, path)):
+                    work.rm(join(path, '*'))  # Remove all files
+                os.makedirs(join(work.tmp_path, path))
+                insert_translation(join(work.tmp_path, path),
+                                   map_translations(translation, '.intent'))
+                insert_translation(join(work.tmp_path, path),
+                                   map_translations(translation, '.voc'))
+                insert_translation(join(work.tmp_path, path),
+                                   map_translations(translation, '.entity'))
+                work.add(join(path, '*'))  # add the new files
+            # Handle regex dir
+            path = join('regex', lang)
+            if exists(join(work.tmp_path, 'regex')):
+                if exists(join(work.tmp_path, path)):
+                    work.rm(join(path, '*'))  # Remove all files
+                os.makedirs(join(work.tmp_path, path))
+                insert_translation(join(work.tmp_path, path),
+                                   map_translations(translation, '.rx'))
+                work.add(join(path, '*'))  # add the new files
+
+    return langs  # Return checked languages
 
 
 if __name__ == '__main__':
