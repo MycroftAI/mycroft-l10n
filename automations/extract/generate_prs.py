@@ -16,6 +16,12 @@
 #
 
 
+"""
+Script generating translation Pull Requests to github repos.
+
+See "generate_prs.py --help" for options.
+"""
+
 import argparse
 import os
 import json
