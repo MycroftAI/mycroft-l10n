@@ -16,6 +16,7 @@
 #
 
 
+import argparse
 import os
 import json
 from os.path import join, exists
@@ -67,10 +68,6 @@ def download_lang(lang):
     pass
 
 
-with open('occurrences.json') as f:
-    occurrences = json.load(f)
-
-
 def is_translated(path):
     """ Checks if all files in the translation has at least one translation.
 
@@ -94,7 +91,7 @@ def is_translated(path):
     return translated_files == all_files
 
 
-def parse_po_file(path, skill):
+def parse_po_file(path, skill, occurrences):
     """ Create dictionary with translated files as key containing
     the file content as a list.
 
@@ -149,13 +146,29 @@ def po_file_path(skill, lang):
                 skill + '-' + pootle_langs[lang] + '.po')
 
 
-def main():
+def read_occurrences_file(path):
+    """Read the occurence json file and return dictionary."""
+    with open(path) as f:
+        occurrences = json.load(f)
+    return occurrences
+
+
+def main(dry_run, occurrences_file, mycroft_only):
+    """Main script.
+
+    Arguments:
+        dry_run (bool): Perform all the actions but do not create pull requests
+        occurence_file (str): path to occurence file
+        mycroft_only (bool): only perform actions on mycroft skills.
+    """
     skill_repos = get_skill_repos()
+
+    occurrences = read_occurrences_file(occurrences_file)
 
     for skill in skill_repos:
         # Get repo information
         skill_url = skill_repos[skill]
-        if 'mycroftai/' not in skill_url.lower():
+        if mycroft_only and 'mycroftai/' not in skill_url.lower():
             print('Skipping {}'.format(skill_url))
             continue
         print('Running {}'.format(skill_url))
@@ -167,19 +180,20 @@ def main():
         work_dir.checkout('-b', branch)
 
         # Update language files
-        langs = update_skill(skill, work_dir)
+        langs = update_skill(skill, work_dir, occurrences)
 
         # If a change has been made commit and make a PR
         if work_dir.diff('--cached') != '':
-            print("\tCreating PR for {}".format(skill))
-            # Commit
-            work_dir.commit('-m', 'Update translations')
-            # Push branch to fork
-            work_dir.push('-f', 'work', branch)
-            # Open PR
-            create_or_edit_pr(branch, upstream, langs)
+            print("\n\tCreating PR for {}\n\n".format(skill))
+            if not dry_run:
+                # Commit
+                work_dir.commit('-m', 'Update translations')
+                # Push branch to fork
+                work_dir.push('-f', 'work', branch)
+                # Open PR
+                create_or_edit_pr(branch, upstream, langs)
         else:
-            print('\tNo changes for {}, skipping PR'.format(skill))
+            print('\n\tNo changes for {}, skipping PR\n\n'.format(skill))
         work_dir.tmp_remove()
 
 
@@ -187,7 +201,14 @@ def map_translations(translation, filetype):
     return {k: translation[k] for k in translation if k.endswith(filetype)}
 
 
-def update_skill(skill, work):
+def update_skill(skill, work, occurrences):
+    """Update language specific files for a skill.
+
+    Arguments:
+        skill: skill to operate on
+        work: work repo
+        occurences (dict): occurence dictiontionary, mapping strings to files
+    """
     langs = []
     for lang in pootle_langs:
         # Build po-file path
@@ -199,7 +220,7 @@ def update_skill(skill, work):
 
         langs.append(lang)
         print('Processing {}'.format(f))
-        translation = parse_po_file(f, skill)
+        translation = parse_po_file(f, skill, occurrences)
 
         # Modify skill
         if 'locale' in os.listdir(work.tmp_path):
@@ -250,5 +271,19 @@ def update_skill(skill, work):
     return langs  # Return checked languages
 
 
+def create_argparser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--dry-run', action='store_true',
+                        help='Don\'t send any PR to the skills')
+    parser.add_argument('-o', '--occurence-file', default='./occurrences.json',
+                        help=('path to occurrences.json, '
+                              '(default "./occurrences.json")'))
+    parser.add_argument('-m', '--mycroft-only', action='store_true',
+                        help='Only operate on mycroft skills.')
+    return parser
+
+
 if __name__ == '__main__':
-    main()
+    parser = create_argparser()
+    args = parser.parse_args()
+    main(args.dry_run, args.occurence_file, args.mycroft_only)
