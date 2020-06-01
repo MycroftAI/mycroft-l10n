@@ -64,7 +64,7 @@ def create_or_edit_pr(branch, upstream, langs=[]):
     base = upstream.default_branch
     head = '{}:{}'.format(user.login, branch)
     pulls = list(upstream.get_pulls(base=base, head=head))
-    title = 'Updated translations: {}'.format(langs)
+    title = 'Updated translations'
     body = 'Automatically generated PR from translate.mycroft.ai\n\n'
     body += 'The updated languages are:\n'
     for lang in langs:

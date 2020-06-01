@@ -62,6 +62,8 @@ def main():
                 for line in linelist:
                     print("line before replace() is:  " + line)
                     line = line.replace(r'"', r'\"').strip("\n")
+                    if not line:
+                        continue
                     print("line is:  " + line)
                     temp.write('{0}{1}{2}{3}'.format(ftag, line, btag, "\n"))
                     files = d[skill].get(line, []) + [file]
